@@ -91,18 +91,22 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
   align-items: center;
-  gap: 32px;
+  gap: 64px;
   max-width: var(--max);
   min-height: 780px;
   margin: 0 auto;
   padding: 48px 24px;
+  overflow: hidden;
 }
 
 .hero-copy {
   width: min(620px, calc(100vw - 48px));
   max-width: 620px;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .eyebrow {
@@ -187,18 +191,22 @@ h3 {
 
 .hero-art {
   position: relative;
+  justify-self: end;
+  width: min(100%, 560px);
   min-height: 690px;
+  min-width: 0;
+  z-index: 1;
 }
 
 .phone-shot {
   position: absolute;
-  width: min(420px, 44vw);
+  width: clamp(300px, 27vw, 390px);
   border-radius: 36px;
   box-shadow: 0 32px 80px var(--shadow);
 }
 
 .main-shot {
-  right: 140px;
+  right: 148px;
   top: 0;
   transform: rotate(-2deg);
 }
@@ -314,9 +322,21 @@ h3 {
 
 .pro-section {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: minmax(0, 0.98fr) minmax(0, 0.82fr);
   align-items: center;
-  gap: 48px;
+  gap: 72px;
+  overflow: hidden;
+}
+
+.pro-section h2 {
+  font-size: clamp(2.35rem, 5vw, 5.35rem);
+  max-width: 760px;
+}
+
+.pro-copy {
+  min-width: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .check-list {
@@ -347,9 +367,14 @@ h3 {
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   align-items: center;
+  justify-items: end;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .stacked-shots img {
+  width: min(100%, 320px);
   border-radius: 30px;
   box-shadow: 0 24px 60px rgba(64, 41, 24, 0.16);
 }
